@@ -96,15 +96,18 @@ def main():
             with open(os.path.join(os.getcwd(), f"{os.getcwd()}/ori/{filename}"), 'r') as fp: 
                 content = fp.read()
                 words = content.split('\n')
-        
-                for word in words:
-                    url = f"https://jisho.org/word/{word}"
-                    print(f"go to {url}")
-                    driver.get(url)
-                    time.sleep(3)
 
-                    meaning = driver.find_element('css selector', 'div.concept_light-meanings')
-                    print(meaning.get_attribute('innerHTML'))
+                with open(f'{filename}.js', 'w') as fpDump:
+                    fpDump.write(str(words))
+        
+                # for word in words:
+                #     url = f"https://jisho.org/word/{word}"
+                #     print(f"go to {url}")
+                #     driver.get(url)
+                #     time.sleep(3)
+
+                #     meaning = driver.find_element('css selector', 'div.concept_light-meanings')
+                #     print(meaning.get_attribute('innerHTML'))
         
 
         # with open('data.json', 'w') as fp:
