@@ -96,6 +96,10 @@ def main():
             with open(os.path.join(os.getcwd(), f"{os.getcwd()}/ori/{filename}"), 'r') as fp: 
                 content = fp.read()
                 words = content.split('\n')
+                print(len(words))
+
+                words = list(dict.fromkeys(words))
+                print(len(words))
 
                 with open(f'{filename}.js', 'w') as fpDump:
                     fpDump.write(str(words))
